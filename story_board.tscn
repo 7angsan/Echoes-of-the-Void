@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://4bqu017nl46w"]
+
+[ext_resource type="Script" path="res://fade_transition.gd" id="1_dk1jd"]
+[ext_resource type="FontFile" uid="uid://rg16im737d84" path="res://limbo_font__by_alex484000-d5dthys.ttf" id="2_a8475"]
+
+[sub_resource type="Animation" id="Animation_t0vt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qa5tj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhwjx"]
+_data = {
+"RESET": SubResource("Animation_t0vt5"),
+"fade_out": SubResource("Animation_qa5tj")
+}
+
+[node name="story_board" type="CanvasLayer"]
+script = ExtResource("1_dk1jd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 41.0
+scale = Vector2(48.2, 26.88)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nhwjx")
+}
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -190.0
+offset_right = 750.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_a8475")
+theme_override_font_sizes/font_size = 60
+text = "A boy awakens in total darkness, memories lost and senses sharp. The world around him is silent, shadows stretching endlessly. His only guide is a faint, flickering light in the distance, whispering of forgotten secrets and hidden dangers. With each step, fragments of his past flash before him—faces, places, and a name he can’t recall. Driven by curiosity and fear, he ventures forward, hoping to uncover who he is and why the world has become so dark."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -289.0
+offset_top = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_a8475")
+theme_override_font_sizes/font_size = 60
+text = "Continue →"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

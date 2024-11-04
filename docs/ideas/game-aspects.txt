@@ -1,0 +1,50 @@
+General Game Concepts
+- Short games that you can do over and over again
+- Fast paced / speedruns
+    + Fast rounds
+- Rouge-like
+- Abilities to help player
+- Dark-souls like ==> very difficult
+  + high skill cap
+- hades
+- hack and slash
+- survival aspects
+  + Gather materials
+  + building structures
+- One hit kill enemies
+  + We can kil them easily
+- Every time you die, player ages
+  + Every time you die its perma
+  + As you age, you gain more 
+- Some sanity level that gets lower the more you go out
+  + you die when it is full
+  + touch light gradually goes down
+- 
+
+Agreed
+- Face paced, danger, time limit, urgency
+- Having abilities in a "safe" area, and harder aspect outside
+- Being able to see whole map at first / everything is lit up
+  and decreases over time
+
+Refined Ideas
+- Plaformer like where you see entire map at first but then
+ field of view / view range decrases over time
+- Open world (like Rust) you can go far
+  + Different landmarks
+  + You have a house, campfire
+  + need
+  ===> Turning point in the middle where your house is no more
+    and you have to rebuild or game changes
+     + Once you venture too far, then everything goes black
+     + You cannot go back
+     + First part can continue to the second part
+- Someone is stalking you and you don't see it
+  + Sometimes follows you and sometimes doesn'that
+  + Doesn't need to be enemy but adds tension
+  + Can be linked to sanity
+
+
+
+Stuff to Implement
+- 

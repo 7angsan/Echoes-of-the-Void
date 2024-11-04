@@ -1,0 +1,264 @@
+[gd_scene load_steps=18 format=3 uid="uid://cupwiadsvt60a"]
+
+[ext_resource type="Script" path="res://sanity.gd" id="1_htj3k"]
+[ext_resource type="Texture2D" uid="uid://ck8j78rrviaho" path="res://healthbarUnder.png" id="1_mbdat"]
+[ext_resource type="Texture2D" uid="uid://dmmhc1ecnfod8" path="res://healthbarProgress.png" id="2_oqm1l"]
+[ext_resource type="FontFile" uid="uid://rg16im737d84" path="res://limbo_font__by_alex484000-d5dthys.ttf" id="3_vw54w"]
+[ext_resource type="Script" path="res://resource_hud.gd" id="5_rd813"]
+[ext_resource type="Texture2D" uid="uid://lgvatuqj1mb7" path="res://arrow.png" id="6_1ldqk"]
+[ext_resource type="Texture2D" uid="uid://doa3x015iejj1" path="res://Art Assests/resource.png" id="6_ysvp4"]
+[ext_resource type="Script" path="res://compass.gd" id="7_prgjv"]
+[ext_resource type="Script" path="res://dowsing_rod.gd" id="9_viw56"]
+[ext_resource type="Script" path="res://fragment_container.gd" id="10_anpct"]
+[ext_resource type="Texture2D" uid="uid://cxptknh4qqk6y" path="res://sun_fragments/sun_fragment_1.png" id="10_yrofm"]
+[ext_resource type="Texture2D" uid="uid://drgnm1fohxnmh" path="res://sun_fragments/sun_fragment_2.png" id="11_obm8f"]
+[ext_resource type="Texture2D" uid="uid://xd6a24jgl0ke" path="res://sun_fragments/sun_fragment_3.png" id="12_amq5w"]
+
+[sub_resource type="Animation" id="Animation_78bdi"]
+resource_name = "fragment animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(900, 170), Vector2(950, 462.29)]
+}
+
+[sub_resource type="Animation" id="Animation_ujpiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9.83, 462.29)]
+}
+
+[sub_resource type="Animation" id="Animation_merwb"]
+resource_name = "fragments left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 462.29), Vector2(9.83, 462)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0lld"]
+_data = {
+"RESET": SubResource("Animation_ujpiy"),
+"fragment animation": SubResource("Animation_78bdi"),
+"fragments left": SubResource("Animation_merwb")
+}
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 424.0
+offset_bottom = 104.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("1_mbdat")
+texture_progress = ExtResource("2_oqm1l")
+script = ExtResource("1_htj3k")
+
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.5
+offset_right = 66.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_vw54w")
+theme_override_font_sizes/font_size = 50
+text = "Sanity
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -424.0
+offset_bottom = 104.0
+grow_horizontal = 0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("1_mbdat")
+texture_progress = ExtResource("2_oqm1l")
+script = ExtResource("5_rd813")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureProgressBar2"]
+layout_mode = 0
+offset_left = 43.91
+offset_top = 83.53
+offset_right = 378.91
+offset_bottom = 211.53
+
+[node name="TextureRect" type="TextureRect" parent="TextureProgressBar2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_ysvp4")
+
+[node name="Label" type="Label" parent="TextureProgressBar2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vw54w")
+theme_override_font_sizes/font_size = 50
+text = "Resources
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Label2" type="Label" parent="TextureProgressBar2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -40.0
+offset_right = 101.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vw54w")
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Compass" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_top = 40.0
+offset_right = 51.5
+offset_bottom = 96.0
+grow_horizontal = 2
+pivot_offset = Vector2(51, 28)
+texture = ExtResource("6_1ldqk")
+script = ExtResource("7_prgjv")
+
+[node name="Dowsing Rod" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -100.04
+offset_right = 51.5
+offset_bottom = -44.04
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(51, 28)
+texture = ExtResource("6_1ldqk")
+script = ExtResource("9_viw56")
+
+[node name="Tooltip" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.5
+offset_top = -180.0
+offset_right = 28.5
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_vw54w")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -77.71
+offset_right = 397.0
+offset_bottom = 1493.29
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+script = ExtResource("10_anpct")
+
+[node name="Fragment1" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 521)
+layout_mode = 2
+texture = ExtResource("10_yrofm")
+stretch_mode = 5
+
+[node name="Fragment2" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 521)
+layout_mode = 2
+texture = ExtResource("11_obm8f")
+stretch_mode = 5
+
+[node name="Fragment3" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_amq5w")
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w0lld")
+}

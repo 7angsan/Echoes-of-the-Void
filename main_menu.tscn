@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg4vcmwv488gn"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_8lsny"]
+[ext_resource type="FontFile" uid="uid://rg16im737d84" path="res://limbo_font__by_alex484000-d5dthys.ttf" id="2_ohwmy"]
+
+[node name="Main Menu" type="CanvasLayer"]
+script = ExtResource("1_8lsny")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1928.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.5
+offset_top = -197.5
+offset_right = 563.5
+offset_bottom = 196.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ohwmy")
+theme_override_font_sizes/font_size = 150
+text = "Echoes of the Void"
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="PlayButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ohwmy")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="HowToButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ohwmy")
+theme_override_font_sizes/font_size = 50
+text = "How To Play"
+
+[node name="Quit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ohwmy")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HowToButton" to="." method="_on_how_to_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,16 @@
+- World
+    - World is larger than one player screen
+    - Green for whole map
+    - Has resources for player to collect
+    - Has lighting aspect
+        + Player can be light source when carrying light
+- Player that moves
+    - Player can collect resource
+        + Increases resource count
+    - Camera follows the player
+- Hud
+    - A sanity meter that goes up by some interval
+        + it has function to decrease 
+        + function to change sanity increase rate
+    - A count for number of resources
+- Top down 2D

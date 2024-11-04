@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://kj8cfdluj1ws"]
+
+[ext_resource type="Script" path="res://death_screen.gd" id="2_7x16c"]
+[ext_resource type="FontFile" uid="uid://rg16im737d84" path="res://limbo_font__by_alex484000-d5dthys.ttf" id="3_7sd0x"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+script = ExtResource("2_7x16c")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -349.5
+offset_right = 550.0
+offset_bottom = 349.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7sd0x")
+theme_override_font_sizes/font_size = 150
+text = "You went Insane!!!"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.167451, 0.167451, 0.167451, 1)
+theme_override_fonts/font = ExtResource("3_7sd0x")
+theme_override_font_sizes/font_size = 45
+text = "Restart
+"
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.167451, 0.167451, 0.167451, 1)
+theme_override_fonts/font = ExtResource("3_7sd0x")
+theme_override_font_sizes/font_size = 45
+text = "Main Menu"
+
+[node name="Control2" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.167451, 0.167451, 0.167451, 1)
+theme_override_fonts/font = ExtResource("3_7sd0x")
+theme_override_font_sizes/font_size = 45
+text = "Quit"

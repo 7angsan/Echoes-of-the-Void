@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqbi5e052spf3"]
+
+[ext_resource type="Texture2D" uid="uid://bkpsamke8e1y7" path="res://House_Red.png" id="1_ffmo4"]
+[ext_resource type="Script" path="res://shop.gd" id="1_gkgnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pikjq"]
+size = Vector2(128, 192)
+
+[node name="Shop" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_gkgnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pikjq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("1_ffmo4")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

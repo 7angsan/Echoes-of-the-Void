@@ -1,0 +1,178 @@
+[gd_scene load_steps=22 format=3 uid="uid://nd5gsw8ahina"]
+
+[ext_resource type="Script" path="res://base.gd" id="1_f355r"]
+[ext_resource type="Texture2D" uid="uid://c58l16nph5g3o" path="res://sign.png" id="3_f1eac"]
+[ext_resource type="FontFile" uid="uid://rg16im737d84" path="res://limbo_font__by_alex484000-d5dthys.ttf" id="3_p6q5f"]
+[ext_resource type="Texture2D" uid="uid://ck8j78rrviaho" path="res://healthbarUnder.png" id="5_uk6x5"]
+[ext_resource type="Texture2D" uid="uid://dmmhc1ecnfod8" path="res://healthbarProgress.png" id="6_haxxy"]
+[ext_resource type="Texture2D" uid="uid://w5yed4a6uo0q" path="res://Art Assests/Pile of Logs.png" id="6_wwvnv"]
+[ext_resource type="Texture2D" uid="uid://dfijklrcqmhna" path="res://fire.png" id="7_8818l"]
+[ext_resource type="Texture2D" uid="uid://djxccy63rmsdm" path="res://Art Assests/Fire Animation.png" id="7_xqy7o"]
+[ext_resource type="Texture2D" uid="uid://fng6avjvhhdl" path="res://fire4.png" id="8_rfc7y"]
+[ext_resource type="Texture2D" uid="uid://d0uhf7180fpt6" path="res://fire3.png" id="9_gb6j2"]
+[ext_resource type="Texture2D" uid="uid://b4pxtp2de6jpn" path="res://nofire.png" id="10_1bn55"]
+[ext_resource type="Texture2D" uid="uid://b4jduo0e7vql" path="res://fire2.png" id="10_gdp54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avru2"]
+size = Vector2(128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dexaw"]
+atlas = ExtResource("7_xqy7o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcxtm"]
+atlas = ExtResource("7_xqy7o")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga40t"]
+atlas = ExtResource("7_xqy7o")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3h87"]
+atlas = ExtResource("7_xqy7o")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nw2k"]
+atlas = ExtResource("7_xqy7o")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duiax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dexaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcxtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga40t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3h87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nw2k")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gdp54")
+}],
+"loop": true,
+"name": &"burning_out",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8818l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rfc7y")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1bn55")
+}],
+"loop": true,
+"name": &"nofire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gb6j2")
+}],
+"loop": true,
+"name": &"small",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_b15bv"]
+offsets = PackedFloat32Array(0.272727, 0.668831)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a8bpj"]
+gradient = SubResource("Gradient_b15bv")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Base" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_f355r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_avru2")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 58.5
+offset_top = -119.0
+offset_right = 122.5
+offset_bottom = 9.0
+scale = Vector2(1.19, 1.715)
+texture = ExtResource("3_f1eac")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -21.5
+offset_right = 198.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_p6q5f")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -69.0
+offset_top = 75.0
+offset_right = 355.0
+offset_bottom = 179.0
+scale = Vector2(0.325, 0.335)
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("5_uk6x5")
+texture_progress = ExtResource("6_haxxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 26)
+texture = ExtResource("6_wwvnv")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, -18)
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_duiax")
+animation = &"Fire"
+frame_progress = 0.146642
+
+[node name="PointLight2D" type="PointLight2D" parent="Fire"]
+position = Vector2(5, 47)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a8bpj")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

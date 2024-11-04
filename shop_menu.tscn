@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqpgdwtspewm8"]
+
+[ext_resource type="Script" path="res://shop_ui.gd" id="2_2hkpk"]
+[ext_resource type="Texture2D" uid="uid://doa3x015iejj1" path="res://Art Assests/resource.png" id="2_wl0c8"]
+[ext_resource type="PackedScene" uid="uid://d1mbjy1gbp4r8" path="res://shop_item.tscn" id="3_oiqkc"]
+
+[node name="ShopMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("2_2hkpk")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 512)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Shop" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(285, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "Shop"
+
+[node name="Resource Count" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(162, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "000"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_wl0c8")
+
+[node name="ItemList" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Torch" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Torch"
+description = "Increases lit area around player."
+
+[node name="Carved Animal" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Carved Animal"
+description = "Reduce rate of sanity loss when away from home."
+price = "10"
+
+[node name="Compass" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Compass"
+description = "A compass to guide you home."
+price = "10"
+
+[node name="Bonfire" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Bonfire"
+description = "Increase safety radius of fire at home."
+price = "10"
+
+[node name="Smart Airflow" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Smart Airflow"
+description = "Each log burns for twice as long."
+price = "20"
+
+[node name="Dowsing Rod" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ItemList" instance=ExtResource("3_oiqkc")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+item_name = "Dowsing Rod"
+description = "Adds an icon on the screen pointing to the nearest item fragment."
+price = "20"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="CenterContainer/PanelContainer/MarginContainer"]
+auto_translate_mode = 1
+title = "Buy item?"
+initial_position = 2
+
+[node name="AcceptDialog" type="AcceptDialog" parent="CenterContainer/PanelContainer/MarginContainer"]
+auto_translate_mode = 1
+initial_position = 2
+
+[connection signal="confirmed" from="CenterContainer/PanelContainer/MarginContainer/ConfirmationDialog" to="." method="_on_purchase_dialog_confirmed"]

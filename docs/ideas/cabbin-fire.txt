@@ -1,0 +1,30 @@
+Farther you go, more obstcales
+- Closest it just pick and place
+- Further it's dodge obstcales
+- Further maybe it's enemees
+
+- need to keep the fire lit
+  + Fire strength decreases over time
+- fuel is in same location, maybe random gen
+  + Non renewable. Need to go further out each time.
+  + Reward is upgrade system
+    + Improves comfort area
+    + Go faster
+    + Defence from stalker
+    + Torches
+- Outposts need to be stocked with fuel too
+- Can only spend so long in the darkness
+  + When sanity is full, then you loose
+
+End goal is to find
+- something that got you out of your comfort to get it back
+- Lost your stuffed animal
+- Lost your phone
+- Lost the light / lost the sun
+
+To make game fast pace
+- you build your camp to light grows and you built the sun
+- skill is to find the optimal resources
+
+
+Intro can be player wakes up normally. And then just goes to beds

@@ -1,0 +1,14 @@
+- What to do with resources?
+    - Shop / upgrades
+        - bigger inventory
+        - higher harvesting ability
+        - speed upgrades
+        - flashlight / directed torch for player
+        - larger safe radius for home base
+        - resource GPS locator
+        - GPS for lost item
+        - defence weapons
+    - Change light around base to be based on fuel.
+        - When out out fuel, then player can no longer regen sanity
+        - Player needs to fuel the fire, or it will go out
+    ===> Player needs to figure out balance between the two
